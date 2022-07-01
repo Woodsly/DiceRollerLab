@@ -12,8 +12,6 @@ while (runAgain)
     while (true)
     {
 
-        try
-        {
             //Collecting valid input from user
             Console.WriteLine("How many sides should the dice have?  Enter a number below");
             if (int.TryParse(Console.ReadLine(), out sides) && sides >= 1)
@@ -27,11 +25,7 @@ while (runAgain)
                 //invalid entry = user asked again for number
                 Console.WriteLine("Please enter a valid number");
             }
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.Message);
-        }
+
     }
     //if user selects 6 sides this section will run, if anything other than 6 the else portion will run
     if (sides == 6)
@@ -57,7 +51,7 @@ while (runAgain)
 static int Roller(int s)
 {
     Random roll = new Random();
-    return roll.Next(1, s);
+    return roll.Next(s) + 1;
 }
 
 //This method is only used when the user rolls a six sided die
